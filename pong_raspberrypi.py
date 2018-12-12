@@ -1,18 +1,37 @@
 from sense_hat import SenseHat
 sense = SenseHat()
-import time #importer le time#
+
+import time
+import random
 
 sense.clear(0,0,0)
 
 purple = (150, 117, 175)
-x = 0
-y = 6
 
-sense.set_pixel(x, y, purple) #Affiché une led#
+x = random.randint(1, 6)
+y = random.randint(1, 6)
 
-while x<7: #Faire bouger la led sur la ligne#
+x_sens = 1
+y_sens = 1
+
+sense.set_pixel(x, y, purple)
+
+while True:
   sense.clear(0,0,0)
   sense.set_pixel(x, y, purple)
-  time.sleep(0.5) #temps#
-  x = x+1
+  time.sleep(0.2)
+  x = x + x_sens
+  y = y + y_sens
   
+  if x==0:
+    x_sens = 1
+   
+  
+  if x==7:
+    x_sens = -1
+    
+  if y==0:
+    y_sens = 1
+
+  if y==7:
+    y_sens = -1
