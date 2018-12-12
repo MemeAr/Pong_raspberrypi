@@ -30,15 +30,12 @@ sense.set_pixel(x, y, purple)
 
 while True:
   sense.clear(0,0,0)
-  sense.set_pixel(x, y, purple)
   pongRaquette()
+  sense.set_pixel(x, y, purple)
   time.sleep(0.2)
   x = x + x_sens
   y = y + y_sens
   
-  if x==0:
-    x_sens = 1
-   
   if x==7:
     x_sens = -1
     
@@ -47,9 +44,25 @@ while True:
 
   if y==7:
     y_sens = -1
+    
+  if x==1 and y==ry:
+    x_sens = 1
+    
+  if x==1 and y==ry_sens:
+    x_sens = 1
   
   if x==1 and y==ry_sens+1:
     x_sens = 1
+  
+  if x==1 and y==ry_sens+2:
+    x_sens = 1  
+    
+  if x==0:
+    sense.clear(0,0,0)
+    sense.set_pixel(x, y, 255, 0, 0)
+    pongRaquette()
+    break
+    
   
 
     
