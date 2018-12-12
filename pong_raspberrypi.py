@@ -39,7 +39,6 @@ while True:
   if x==0:
     x_sens = 1
    
-  
   if x==7:
     x_sens = -1
     
@@ -48,6 +47,9 @@ while True:
 
   if y==7:
     y_sens = -1
+  
+  if x==1 and y==ry_sens+1:
+    x_sens = 1
   
 
     
